@@ -1,2 +1,2 @@
-# Excel---Visuale-Basic
-Excel Visule Basic Projeleri
+# Excel---Visual-Basic
+Excel Visual Basic Projeleri
