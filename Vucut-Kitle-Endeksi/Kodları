@@ -1,0 +1,60 @@
+Private Sub btnHesapla_Click()
+    Dim kilo As Double
+    Dim boy As Double
+    Dim vki As Double
+    
+    On Error GoTo hata
+    
+    kilo = Val(txtKilo.Value)
+    ' Boyu metreye çevir
+    boy = Val(txtBoy.Value) / 100 ' Santimetre cinsinden gelen boyu metre cinsine çevir
+    
+    ' Vücut Kitle İndeksini Hesapla ve virgülden sonra iki basamağa yuvarla
+    vki = Round(kilo / (boy * boy), 2)
+    
+    ' Vücut Kitle İndeksi Durumunu Belirle
+    If vki < 18.5 Then
+        lblSonuc.Caption = "Düşük Kilolusunuz. Şanslı hissetmeyin rüzgarlı havalarda uçmamak için kilo alın"
+        lblvke.Visible = True
+        imgDusukKilolu.Visible = True
+        imgNormalKilo.Visible = False
+        imgFazlaKilolu.Visible = False
+        imgObez.Visible = False
+    ElseIf vki >= 18.5 And vki <= 24.99 Then
+        lblvke.Visible = True
+        lblSonuc.Caption = "Normal Kilodasınız. Harika! Vücudun dengede gibi, şimdi bir çikolata yiyebilirsin!"
+        imgDusukKilolu.Visible = False
+        imgNormalKilo.Visible = True
+        imgFazlaKilolu.Visible = False
+        imgObez.Visible = False
+    ElseIf vki >= 25 And vki <= 29.99 Then
+        lblvke.Visible = True
+        lblSonuc.Caption = "Fazla kilolusunuz. Biraz kilo vermen gerekebilir, hamur işleriyle arana mesafe koymanın vakti geldi!"
+        imgDusukKilolu.Visible = False
+        imgNormalKilo.Visible = False
+        imgFazlaKilolu.Visible = True
+        imgObez.Visible = False
+    Else
+        lblSonuc.Caption = "Obezsiniz.Obezlikle başa çıkmak için önce kendinle barışmalısın. Bir adım atmak için hemen bir koşu ayakkabısı almalısın, sonra da koşmalısın!"
+        lblvke.Visible = True
+        imgDusukKilolu.Visible = False
+        imgNormalKilo.Visible = False
+        imgFazlaKilolu.Visible = False
+        imgObez.Visible = True
+    End If
+    
+    
+lblDeger.Caption = Format(vki, "0.00") ' Virgülden sonra iki basamak göster
+txtKilo = ""
+txtBoy = ""
+ 
+
+Exit Sub
+
+hata:
+MsgBox "Lütfen geçerli değer giriniz"
+txtKilo = ""
+txtBoy = ""
+   
+    
+End Sub
