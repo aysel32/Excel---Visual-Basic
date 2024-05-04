@@ -47,14 +47,13 @@ Private Sub btnHesapla_Click()
 lblDeger.Caption = Format(vki, "0.00") ' Virgülden sonra iki basamak göster
 txtKilo = ""
 txtBoy = ""
- 
+btnHesapla.value = False
 
 Exit Sub
 
 hata:
 MsgBox "Lütfen geçerli değer giriniz"
 txtKilo = ""
-txtBoy = ""
-   
+txtBoy = ""   
     
 End Sub
